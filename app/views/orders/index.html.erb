@@ -2,6 +2,17 @@
 
 <h1>Listing Orders</h1>
 
+<div style="width: 50%; margin-top: 30px; margin-bottom: 30px; border: 1px solid gray; padding: 10px;">
+  <%= form_tag orders_path, method: :get do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", name: nil %>
+    </p>
+  <% end %>
+</div>
+
+<%= tag.h2 "Here is your search results:" if params[:query].present? %>
+
 <table>
   <thead>
     <tr>

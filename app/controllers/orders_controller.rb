@@ -4,7 +4,8 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.all.includes(:product)
+    @orders = @orders.search(params[:search].to_s) if params[:search].present?
   end
 
   # GET /orders/1

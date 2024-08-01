@@ -15,6 +15,10 @@ class Order < ApplicationRecord
   after_create :generate_shipment
   after_create :monitor_shipment
 
+  scope :search, ->(query) do
+    joins(:product).where('LOWER(customer_name) LIKE :query OR LOWER(adress) LIKE :query OR LOWER(zip_code) LIKE :query OR LOWER(shipping_method) LIKE :query OR LOWER(products.name) LIKE :query', query: "%#{query.downcase}%")
+  end
+
   delegate :name, to: :product, prefix: true
 
   # Generate shipment for the order
