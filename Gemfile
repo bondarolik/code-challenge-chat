@@ -24,6 +24,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails', '~> 5.0.0'
+  gem 'rails-controller-testing'
+  gem 'faker'
 end
 
 group :development do

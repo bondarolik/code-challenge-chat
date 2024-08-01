@@ -7,7 +7,7 @@ class Order < ApplicationRecord
   belongs_to :product
 
   validates :customer_name, presence: true
-  validates :address, presence: true
+  validates :adress, presence: true
   validates :zip_code, presence: true
   validates :shipping_method, presence: true, inclusion: { in: SHIPPING_METHODS }
   validates :product, presence: true
