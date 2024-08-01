@@ -18,5 +18,8 @@ module CcnCodeChallenge
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    
+    # Add app/classes to autoload paths
+    config.autoload_paths += %W(#{config.root}/app/classes)
   end
 end
