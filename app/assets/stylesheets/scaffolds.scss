@@ -71,3 +71,18 @@ div {
     list-style: square;
   }
 }
+
+header {
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px 0;
+  margin-bottom: 20px;
+
+  nav {
+    a {
+      margin: 0 10px;
+      text-decoration: underline;
+      color: blue;
+    }
+  }
+}

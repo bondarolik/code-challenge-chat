@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Orders</h1>
+
+<div style="width: 50%; margin-top: 30px; margin-bottom: 30px; border: 1px solid gray; padding: 10px;">
+  <%= form_tag orders_path, method: :get do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", name: nil %>
+    </p>
+  <% end %>
+</div>
+
+<%= tag.h2 "Here is your search results:" if params[:query].present? %>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Customer</th>
+      <th>Status</th>
+      <th>Shipping Method</th>
+      <th>Zipcode</th>
+      <th>Product</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= order.customer_name %></td>
+        <td><%= order.status.capitalize %></td>
+        <td><%= order.shipping_method %></td>
+        <td><%= order.zip_code %></td>
+        <td><%= order.product_name %></td>
+        <td><%= link_to 'Show', order %></td>
+        <td><%= link_to 'Edit', edit_order_path(order) %></td>
+        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Empty Order', new_order_path %>
