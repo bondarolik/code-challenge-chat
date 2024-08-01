@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(orders_params)
+    @order = Order.new(order_params)
 
     respond_to do |format|
       if @order.save
@@ -43,7 +43,7 @@ class OrdersController < ApplicationController
   # PATCH/PUT /orders/1.json
   def update
     respond_to do |format|
-      if @order.update(orders_params)
+      if @order.update(order_params)
         format.html { redirect_to @order, notice: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
       else
@@ -72,8 +72,8 @@ class OrdersController < ApplicationController
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
-  def orderS_params
-    params.require(:order).permit(:product_id, :customer_name, :adress, :zip_code, :shipping_method)
+  def order_params
+    params.require(:order).permit(:product_id, :customer_name, :adress, :zip_code, :shipping_method, :status)
   end
 
 end

@@ -31,8 +31,9 @@
 
   <div class="field">
     <%= f.label :shipping_method %><br>
-    <%= f.number_field :shipping_method %>
+    <%= f.select :shipping_method, Order::SHIPPING_METHODS.map { |name| [name, name] } %>
   </div>
+
 
   <div class="actions">
     <%= f.submit %>

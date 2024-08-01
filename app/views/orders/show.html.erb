@@ -1,0 +1,14 @@
+<div id="<%= dom_id @order %>">
+  <%= tag.h1 "Order ID: #{@order.id}" %>
+
+  <pre>
+    <code>
+      <%= @order.inspect %>
+    </code>
+  </pre>
+  
+
+  <%= link_to "Home", root_path %>
+  <%= link_to "All orders", orders_path %>
+  <%= link_to "Edit", edit_order_path(@order) %>
+</div>
