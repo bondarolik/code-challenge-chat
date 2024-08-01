@@ -1,4 +1,10 @@
 class OrdersController < ApplicationController
+  # be sure to replace instance variables in views by @resource
+  # be sure to define resource_params method in private
+  # enable includer and remove everything else
+  # if you want to use the search feature within the index method, just redefine the method here
+  # include CrudController
+
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   # GET /orders
